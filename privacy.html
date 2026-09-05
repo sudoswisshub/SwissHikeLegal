@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Swiss Hike</title>
+<meta name="description" content="Swiss Hike privacy policy: no account, no analytics, no tracking. Everything you create stays on your device.">
+<style>
+/* Palette lifted from the app's Theme (SwissHike/App/DesignSystem.swift): pine of the forest
+   line, glacier melt, the red of the painted Swiss trail marker — reserved for hazards — and
+   the warm paper of a hiking map. */
+:root {
+  --pine: #2A6B50;
+  --pine-deep: #1C4A37;
+  --pine-tint: #E6EFE9;
+  --glacier: #39708F;
+  --marker: #C22F3A;
+  --marker-tint: #FAEAEB;
+  --amber: #A96A0A;
+
+  --canvas: #F5F2EA;
+  --surface: #FFFFFF;
+  --fill: #ECE9DF;
+
+  --ink: #16211B;
+  --muted: #5A655D;
+  --faint: #8A948C;
+  --hairline: rgba(22, 33, 27, 0.12);
+
+  --on-pine: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pine: #8BD4AF;
+    --pine-deep: #5FA985;
+    --pine-tint: #1B2A23;
+    --glacier: #9CCBE4;
+    --marker: #F48B8B;
+    --marker-tint: #2C1B1C;
+    --amber: #F2BE6A;
+
+    --canvas: #121714;
+    --surface: #1D2420;
+    --fill: #2A332D;
+
+    --ink: #E8EDE9;
+    --muted: #A3AEA7;
+    --faint: #77837C;
+    --hairline: rgba(232, 237, 233, 0.12);
+
+    --on-pine: #122A1F;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The hero gradient the app puts behind onboarding: pine rising into glacier sky. */
+.stripe {
+  height: 6px;
+  background: linear-gradient(110deg, var(--pine-deep), var(--pine) 55%, var(--glacier));
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+header.masthead {
+  padding: 44px 0 28px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 36px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.wordmark .mark {
+  width: 22px; height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(140deg, var(--pine-deep), var(--pine));
+  color: var(--on-pine);
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 20px 0 8px;
+}
+
+.updated { color: var(--faint); font-size: 14px; margin: 0; }
+
+nav.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+/* Chips, the way the app draws them: an active chip is unmistakably pine, an idle one sits
+   quietly in the fill. */
+nav.tabs a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--muted);
+  background: var(--fill);
+  border: 1px solid transparent;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+nav.tabs a[aria-current="page"] {
+  background: var(--pine);
+  color: var(--on-pine);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  margin: 40px 0 10px;
+  padding-top: 4px;
+}
+
+h3 { font-size: 16px; margin: 26px 0 6px; }
+
+p { margin: 0 0 14px; }
+
+ul, ol { margin: 0 0 16px; padding-left: 22px; }
+li { margin-bottom: 7px; }
+
+a { color: var(--pine); }
+.masthead .wordmark { color: var(--muted); }
+
+strong { font-weight: 650; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--fill);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
+.lede {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 20px 22px 6px;
+  margin: 22px 0;
+}
+
+/* Pine for reassurance. */
+.card.pine {
+  background: var(--pine-tint);
+  border-color: transparent;
+}
+
+/* Marker red, used the way the app uses it — hazards only, never decoration. */
+.card.danger {
+  background: var(--marker-tint);
+  border-color: transparent;
+  border-left: 4px solid var(--marker);
+  border-radius: 4px 16px 16px 4px;
+}
+.card.danger h3:first-child { color: var(--marker); }
+
+.card h3:first-child, .card h2:first-child { margin-top: 4px; }
+
+.facts { list-style: none; padding: 0; margin: 0 0 16px; }
+.facts li {
+  padding-left: 26px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.facts li::before {
+  content: "✓";
+  position: absolute; left: 0; top: 0;
+  color: var(--pine);
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin: 6px 0 18px;
+}
+.table-wrap { overflow-x: auto; }
+th, td {
+  text-align: left;
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+th { color: var(--faint); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+dl.faq { margin: 0; }
+dl.faq dt { font-weight: 650; margin-top: 20px; }
+dl.faq dd { margin: 6px 0 0; color: var(--muted); }
+
+.contact {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-left: 4px solid var(--pine);
+  border-radius: 4px 14px 14px 4px;
+  padding: 18px 20px;
+  margin: 24px 0;
+  text-decoration: none;
+  color: inherit;
+}
+.contact .label { font-size: 13px; color: var(--faint); display: block; }
+.contact .value { font-size: 19px; font-weight: 650; color: var(--pine); word-break: break-all; }
+
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+  color: var(--faint);
+  font-size: 13px;
+}
+footer a { color: var(--muted); }
+
+@media (max-width: 520px) {
+  h1 { font-size: 28px; }
+  .lede { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<div class="page">
+
+<header class="masthead">
+  <a class="wordmark" href="index.html"><span class="mark">SH</span> Swiss Hike</a>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 5 September 2026</p>
+  <nav class="tabs">
+    <a href="privacy.html" aria-current="page">Privacy</a>
+    <a href="terms.html">Terms &amp; EULA</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<p class="lede">Swiss Hike is a hiking app for Switzerland. It has no account, no login, no advertising, and no analytics. This page explains exactly what the app does with data — and what it deliberately does not do.</p>
+
+<div class="card pine">
+  <h3>The short version</h3>
+  <ul class="facts">
+    <li>There is no account and no sign-in. We never learn who you are.</li>
+    <li>We collect nothing. No personal data is sent to us, because there is no “us” server to send it to.</li>
+    <li>No advertising SDKs, no third-party analytics, no tracking, no device or advertising identifiers.</li>
+    <li>Everything you create in the app — favourites, notes, journals, photos, recorded hikes, plans — stays on your device.</li>
+    <li>Deleting the app deletes that data.</li>
+  </ul>
+</div>
+
+<h2>1. Who is responsible</h2>
+<p>Swiss Hike (“the app”) is developed and published by an independent developer (“we”, “us”). For anything in this policy, write to <a href="mailto:alice.turcanu91@gmail.com">alice.turcanu91@gmail.com</a>.</p>
+
+<h2>2. Data we collect about you</h2>
+<p><strong>None.</strong> The app does not create a user profile on any server, does not send us usage statistics or crash reports of its own, and contains no advertising or analytics libraries. We cannot identify you, contact you, or see how you use the app unless you choose to email us.</p>
+<p>If you download the app from the App Store, Apple gives us anonymous, aggregated sales and crash statistics through App Store Connect. Those reports are produced by Apple, never identify individual users, and are governed by <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
+
+<h2>3. Data stored on your device</h2>
+<p>The app keeps your content locally, using standard iOS storage (<code>UserDefaults</code> and files in the app’s own sandbox). It is never uploaded. This includes:</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>What</th><th>Where it lives</th></tr></thead>
+  <tbody>
+    <tr><td>Favourites, collections, tags, saved searches, checklists, gear lists, goals and milestones</td><td>Local app storage</td></tr>
+    <tr><td>Notes, journal entries, trip plans, scheduled hikes and custom waypoints</td><td>Local app storage</td></tr>
+    <tr><td>Recorded hikes (the GPS track of a walk you chose to record)</td><td>Files in the app’s sandbox</td></tr>
+    <tr><td>Photos you attach to a hike’s photo log</td><td>Copied as JPEGs into the app’s sandbox</td></tr>
+    <tr><td>Offline map tiles and cached trail, weather and elevation data you downloaded for a route</td><td>Files in the app’s sandbox</td></tr>
+    <tr><td>Settings and preferences</td><td>Local app storage</td></tr>
+  </tbody>
+</table>
+</div>
+<p>If you have iCloud Backup or an encrypted device backup enabled, iOS may include this app data in that backup. That is a feature of your device and your Apple Account, handled by Apple under their terms — the data still never reaches us.</p>
+
+<h2>4. Location</h2>
+<p>Location access is optional, and the app only asks after you have opened a trail and it can explain why. If you grant it, your location is used to:</p>
+<ul>
+  <li>open on or sort by the trail nearest you, and show how far the trailhead is;</li>
+  <li>show your position on the map while you follow a route;</li>
+  <li>measure distance, ascent and pace while you are actively recording a hike, and drive the Live Activity and off-route alerts.</li>
+</ul>
+<p>The app requests <strong>“While Using the App”</strong> permission and uses the background-location capability <em>only</em> while a recording is running, so the walk keeps recording with the screen off. iOS shows the blue location indicator the whole time this happens. The app cannot locate you when no recording is in progress.</p>
+<p><strong>Your location is never transmitted to us and never shared with any third party for advertising or profiling.</strong> Coordinates are sent to the public data services in section 6 only to answer a request you made — for example the weather at a point, the map tiles for an area, or the next departure from a nearby stop.</p>
+<p>You can deny or revoke location access at any time in <em>iOS Settings → Privacy &amp; Security → Location Services</em>. The rest of the app keeps working.</p>
+
+<h2>5. Other device permissions</h2>
+<ul>
+  <li><strong>Photos</strong> — only when you pick a picture for a hike’s photo log. The app reads the picture you selected and copies it into its own storage. It never scans your library.</li>
+  <li><strong>Apple Health</strong> — write-only, and only when you tap “Export to Health” on a hike you recorded. The app writes that workout and never reads anything back from Health. Health data is stored by Apple on your device and never reaches us.</li>
+  <li><strong>Notifications</strong> — local reminders only (for a hike you scheduled, or an alert during a walk). They are generated on your device; there are no push notifications from a server.</li>
+  <li><strong>Motion &amp; compass</strong> — used on-device for heading and step-based pace while the map or tracker is open, never stored or transmitted.</li>
+  <li><strong>Siri &amp; widgets</strong> — the Siri shortcut, home-screen widget and Live Activity read the data already on your device. Apple may process a spoken request under its own privacy policy.</li>
+</ul>
+
+<h2>6. Network requests</h2>
+<p>The app fetches maps and live conditions directly from public, key-free services. These requests carry only the coordinates or trail identifiers needed to answer them — no account identifier, no advertising identifier, no personal data:</p>
+<ul>
+  <li><strong>geo.admin.ch</strong> (<code>api3.geo.admin.ch</code>, <code>wmts.geo.admin.ch</code>) — swisstopo and SwitzerlandMobility / ASTRA: trail routes, closures, place names, elevation profiles and map tiles.</li>
+  <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>) — weather forecasts and historical weather, based on MeteoSwiss data.</li>
+  <li><strong>transport.opendata.ch</strong> — Swiss public-transport connections and departures.</li>
+</ul>
+<p>Like any web request, these carry your IP address to the service you are contacting. We do not operate those services and are not responsible for their own data practices; consult each provider’s terms for detail. Where the app offers a link to an operator’s own website, a webcam page, or Apple Maps, tapping it hands you to that site or app under its own policy.</p>
+
+<h2>7. Purchases</h2>
+<p>The app may offer optional paid features or subscriptions. Any purchase is processed entirely by Apple through the App Store. <strong>We never see or receive your payment details</strong> — no card number, no billing address, no Apple Account credentials. The app only learns, from Apple’s on-device receipt, whether a purchase is currently active, and that check happens between your device and Apple. Purchase and billing data is handled by Apple under <a href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
+
+<h2>8. Sharing and exporting</h2>
+<p>Nothing leaves the app unless you send it. When you export a GPX track, share a hike, or write a backup file of your data, iOS’s share sheet puts it wherever you choose — Files, Mail, another app. That destination’s own policy then applies. We receive no copy.</p>
+
+<h2>9. Children</h2>
+<p>The app does not knowingly collect personal data from anyone, including children under 16, because it does not collect personal data at all.</p>
+
+<h2>10. Your rights</h2>
+<p>Data-protection law (the Swiss FADP and the EU GDPR) gives you rights of access, correction, deletion and portability over personal data a company holds about you. We hold none, so there is nothing for us to disclose or erase. Your own copy is under your control: everything is on your device, exportable from within the app, and removed completely when you delete the app.</p>
+
+<h2>11. Changes</h2>
+<p>If this policy changes, the “Last updated” date above will be revised, and the current version will always be at this address. Continued use of the app after a change means you accept the updated policy.</p>
+
+<h2>12. Contact</h2>
+<a class="contact" href="mailto:alice.turcanu91@gmail.com">
+  <span class="label">Privacy questions</span>
+  <span class="value">alice.turcanu91@gmail.com</span>
+</a>
+<p>We answer privacy mail within a few working days.</p>
+
+<footer>
+  <p>Swiss Hike · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms &amp; EULA</a> · <a href="support.html">Support</a></p>
+  <p>Trail and map data © swisstopo, SwitzerlandMobility / ASTRA and OpenStreetMap contributors (ODbL). Weather via MeteoSwiss / Open-Meteo. Transport via the Swiss public transport API.</p>
+</footer>
+
+</div>
+</body>
+</html>

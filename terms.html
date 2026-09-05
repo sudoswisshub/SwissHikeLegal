@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of Use &amp; EULA — Swiss Hike</title>
+<meta name="description" content="Swiss Hike end user licence agreement and terms of use, including paid features and subscriptions.">
+<style>
+/* Palette lifted from the app's Theme (SwissHike/App/DesignSystem.swift): pine of the forest
+   line, glacier melt, the red of the painted Swiss trail marker — reserved for hazards — and
+   the warm paper of a hiking map. */
+:root {
+  --pine: #2A6B50;
+  --pine-deep: #1C4A37;
+  --pine-tint: #E6EFE9;
+  --glacier: #39708F;
+  --marker: #C22F3A;
+  --marker-tint: #FAEAEB;
+  --amber: #A96A0A;
+
+  --canvas: #F5F2EA;
+  --surface: #FFFFFF;
+  --fill: #ECE9DF;
+
+  --ink: #16211B;
+  --muted: #5A655D;
+  --faint: #8A948C;
+  --hairline: rgba(22, 33, 27, 0.12);
+
+  --on-pine: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pine: #8BD4AF;
+    --pine-deep: #5FA985;
+    --pine-tint: #1B2A23;
+    --glacier: #9CCBE4;
+    --marker: #F48B8B;
+    --marker-tint: #2C1B1C;
+    --amber: #F2BE6A;
+
+    --canvas: #121714;
+    --surface: #1D2420;
+    --fill: #2A332D;
+
+    --ink: #E8EDE9;
+    --muted: #A3AEA7;
+    --faint: #77837C;
+    --hairline: rgba(232, 237, 233, 0.12);
+
+    --on-pine: #122A1F;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* The hero gradient the app puts behind onboarding: pine rising into glacier sky. */
+.stripe {
+  height: 6px;
+  background: linear-gradient(110deg, var(--pine-deep), var(--pine) 55%, var(--glacier));
+}
+
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px 72px;
+}
+
+header.masthead {
+  padding: 44px 0 28px;
+  border-bottom: 1px solid var(--hairline);
+  margin-bottom: 36px;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.wordmark .mark {
+  width: 22px; height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(140deg, var(--pine-deep), var(--pine));
+  color: var(--on-pine);
+  display: grid; place-items: center;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 20px 0 8px;
+}
+
+.updated { color: var(--faint); font-size: 14px; margin: 0; }
+
+nav.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+/* Chips, the way the app draws them: an active chip is unmistakably pine, an idle one sits
+   quietly in the fill. */
+nav.tabs a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--muted);
+  background: var(--fill);
+  border: 1px solid transparent;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+nav.tabs a[aria-current="page"] {
+  background: var(--pine);
+  color: var(--on-pine);
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 21px;
+  letter-spacing: -0.01em;
+  margin: 40px 0 10px;
+  padding-top: 4px;
+}
+
+h3 { font-size: 16px; margin: 26px 0 6px; }
+
+p { margin: 0 0 14px; }
+
+ul, ol { margin: 0 0 16px; padding-left: 22px; }
+li { margin-bottom: 7px; }
+
+a { color: var(--pine); }
+.masthead .wordmark { color: var(--muted); }
+
+strong { font-weight: 650; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9em;
+  background: var(--fill);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
+.lede {
+  font-size: 18px;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 20px 22px 6px;
+  margin: 22px 0;
+}
+
+/* Pine for reassurance. */
+.card.pine {
+  background: var(--pine-tint);
+  border-color: transparent;
+}
+
+/* Marker red, used the way the app uses it — hazards only, never decoration. */
+.card.danger {
+  background: var(--marker-tint);
+  border-color: transparent;
+  border-left: 4px solid var(--marker);
+  border-radius: 4px 16px 16px 4px;
+}
+.card.danger h3:first-child { color: var(--marker); }
+
+.card h3:first-child, .card h2:first-child { margin-top: 4px; }
+
+.facts { list-style: none; padding: 0; margin: 0 0 16px; }
+.facts li {
+  padding-left: 26px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.facts li::before {
+  content: "✓";
+  position: absolute; left: 0; top: 0;
+  color: var(--pine);
+  font-weight: 700;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  margin: 6px 0 18px;
+}
+.table-wrap { overflow-x: auto; }
+th, td {
+  text-align: left;
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--hairline);
+  vertical-align: top;
+}
+th { color: var(--faint); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+dl.faq { margin: 0; }
+dl.faq dt { font-weight: 650; margin-top: 20px; }
+dl.faq dd { margin: 6px 0 0; color: var(--muted); }
+
+.contact {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-left: 4px solid var(--pine);
+  border-radius: 4px 14px 14px 4px;
+  padding: 18px 20px;
+  margin: 24px 0;
+  text-decoration: none;
+  color: inherit;
+}
+.contact .label { font-size: 13px; color: var(--faint); display: block; }
+.contact .value { font-size: 19px; font-weight: 650; color: var(--pine); word-break: break-all; }
+
+footer {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+  color: var(--faint);
+  font-size: 13px;
+}
+footer a { color: var(--muted); }
+
+@media (max-width: 520px) {
+  h1 { font-size: 28px; }
+  .lede { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+<div class="stripe"></div>
+<div class="page">
+
+<header class="masthead">
+  <a class="wordmark" href="index.html"><span class="mark">SH</span> Swiss Hike</a>
+  <h1>Terms of Use &amp; End User Licence Agreement</h1>
+  <p class="updated">Last updated: 5 September 2026</p>
+  <nav class="tabs">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html" aria-current="page">Terms &amp; EULA</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<p class="lede">This agreement is between you and the developer of Swiss Hike (“we”, “us”). By downloading, installing or using the app you accept it. If you do not accept it, do not use the app.</p>
+
+<div class="card danger">
+  <h3>Read this first</h3>
+  <p><strong>Swiss Hike is a planning aid, not a safety system.</strong> Mountain hiking is dangerous and can be fatal. Trail data, weather, closures, difficulty grades and elevation figures can be wrong, stale or missing, and GPS can fail. You alone are responsible for your route, your equipment and your decision to set out or turn back. See section 8.</p>
+</div>
+
+<h2>1. Relationship to Apple’s standard EULA</h2>
+<p>Swiss Hike is licensed, not sold, to you. This agreement supplements, and where it is stricter replaces, Apple’s <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Licensed Application End User Licence Agreement</a>. Where this agreement is silent, Apple’s standard EULA and the <a href="https://www.apple.com/legal/internet-services/itunes/">Apple Media Services Terms and Conditions</a> apply. Where a term here conflicts with a mandatory term imposed by Apple, Apple’s term prevails for that point only.</p>
+
+<h2>2. Licence granted</h2>
+<p>We grant you a personal, non-transferable, non-exclusive, revocable licence to use Swiss Hike on Apple-branded devices that you own or control, as permitted by the App Store Usage Rules and by Apple’s Family Sharing rules where applicable. The licence covers personal, non-commercial use.</p>
+
+<h2>3. What you may not do</h2>
+<ul>
+  <li>Copy, sell, rent, sublicense, redistribute or make the app available to others except as the App Store Usage Rules allow.</li>
+  <li>Reverse-engineer, decompile or disassemble the app, or attempt to derive its source code, except to the extent this restriction is prohibited by applicable law.</li>
+  <li>Remove or obscure copyright, licence or attribution notices — including the swisstopo, SwitzerlandMobility / ASTRA and OpenStreetMap credits the app displays.</li>
+  <li>Bulk-extract, scrape or re-publish the trail, map, weather or transport data the app fetches, or use the app to place unreasonable load on the public services it depends on.</li>
+  <li>Circumvent, disable or tamper with any purchase check, licence check or usage limit.</li>
+  <li>Use the app in a way that breaks applicable law, or that endangers yourself or others.</li>
+</ul>
+
+<h2>4. Your content</h2>
+<p>Notes, journals, photos, recorded tracks, plans and everything else you create in the app remain yours. They stay on your device — we neither receive nor claim any right to them (see the <a href="privacy.html">Privacy Policy</a>). You are responsible for keeping your own backups; use the app’s export function if the content matters to you. We are not liable for content lost through device failure, deleting the app, an iOS or app update, or a restore you perform.</p>
+
+<h2>5. Paid features, subscriptions and free trials</h2>
+
+<h3>5.1 How purchases work</h3>
+<p>Some features may require a one-time purchase or an active subscription. All purchases are made through Apple’s In-App Purchase system and billed to your Apple Account. Prices are shown in the app before you confirm and may differ by region; Apple may change prices in your local currency to reflect exchange rates and taxes. Purchases are personal to your Apple Account, and are restorable on your devices through Apple’s standard “Restore Purchases” mechanism.</p>
+
+<h3>5.2 Subscriptions renew automatically</h3>
+<ul>
+  <li>A subscription renews automatically at the end of each period unless you turn off auto-renewal at least <strong>24 hours before</strong> the current period ends.</li>
+  <li>Your Apple Account is charged for renewal within the 24 hours before the period ends, at the price then shown for your plan.</li>
+  <li>You manage and cancel subscriptions in <em>iOS Settings → your name → Subscriptions</em>, or at <a href="https://apps.apple.com/account/subscriptions">apps.apple.com/account/subscriptions</a>. We cannot cancel a subscription for you.</li>
+  <li>Cancelling stops the next renewal; access continues until the end of the period you already paid for.</li>
+  <li>If a free trial is offered, any unused part of it is forfeited when you buy a subscription. Cancel at least 24 hours before the trial ends to avoid being charged.</li>
+</ul>
+
+<h3>5.3 Refunds</h3>
+<p>Apple is the merchant of record for every purchase. Refunds are handled by Apple under the Apple Media Services Terms, and are requested at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a> — we cannot issue them. Statutory withdrawal or consumer-refund rights you have under your local law are unaffected by this paragraph.</p>
+
+<h3>5.4 Changes to paid features</h3>
+<p>We may add, change, or discontinue features, including paid ones. If we discontinue a feature that is central to a subscription you are paying for, you may cancel; your existing prepaid period is honoured or, where local law requires it, refunded pro rata through Apple. A feature that is free today may become paid in a future version — if that happens, the version you already installed keeps working as it is until you choose to update.</p>
+
+<h3>5.5 No offline guarantee tied to payment</h3>
+<p>Paid features that depend on external data (weather, transport, closures, downloadable map tiles) are subject to those third-party services remaining available. A temporary or permanent outage at a data provider is not a defect in the app and does not by itself entitle you to a refund.</p>
+
+<h2>6. Third-party data and licences</h2>
+<p>The app displays and fetches open data from third parties, including swisstopo, SwitzerlandMobility / ASTRA (via geo.admin.ch), OpenStreetMap contributors (ODbL), MeteoSwiss via Open-Meteo, and the Swiss public transport API. That data belongs to its providers and remains subject to their own licences and terms. Difficulty grades marked as community data in the app are contributed by volunteers and are <strong>not</strong> official SAC ratings. We do not control these services, do not guarantee their accuracy or availability, and are not responsible for them.</p>
+
+<h2>7. Availability and changes</h2>
+<p>We may update the app, change how it works, or stop supporting older iOS versions or devices. We may also stop publishing the app entirely. We do not promise uninterrupted or error-free operation.</p>
+
+<h2>8. Safety — no warranty of accuracy, and your responsibility</h2>
+<p>Swiss Hike is an aid to planning and navigation, provided for information only. It is <strong>not</strong> a substitute for an official map, proper preparation, mountain experience, or your own judgement. In particular:</p>
+<ul>
+  <li>Routes, distances, ascent figures, timings, difficulty grades and elevation profiles are estimates and may be inaccurate or out of date.</li>
+  <li>Weather forecasts, trail closures, hut information, transport times and webcam images may be wrong, delayed or unavailable.</li>
+  <li>GPS positioning can be inaccurate or unavailable; batteries fail; phones break and get wet.</li>
+  <li>Emergency and SOS features depend on mobile network coverage and on your device working. <strong>Never rely on the app to summon help.</strong> In an emergency in Switzerland call 1414 (Rega air rescue), 112 or 117.</li>
+</ul>
+<p>You are solely responsible for assessing conditions, your own fitness and equipment, and for the decision to start, continue or abandon a hike. Always carry an official map and a means of calling for help, and tell someone where you are going.</p>
+
+<h2>9. Disclaimer of warranties</h2>
+<p>To the maximum extent permitted by law, the app is provided <strong>“as is” and “as available”</strong>, without warranty of any kind, express or implied, including any implied warranty of merchantability, fitness for a particular purpose, accuracy, or non-infringement. Some jurisdictions do not allow the exclusion of implied warranties, so parts of this section may not apply to you, and nothing here limits mandatory consumer rights or liability for death or personal injury caused by our negligence, or for fraud.</p>
+
+<h2>10. Limitation of liability</h2>
+<p>To the maximum extent permitted by law, we are not liable for indirect, incidental, special, consequential or punitive damages, nor for loss of data, loss of profit, injury, or costs of rescue, arising from your use of or inability to use the app. Where liability cannot be excluded, our total aggregate liability is limited to the amount you paid for the app and its in-app purchases in the twelve months before the event giving rise to the claim, or CHF 50, whichever is greater. Mandatory statutory liability — including liability for death or personal injury caused by our negligence, for gross negligence or wilful misconduct, and under applicable product-liability law — is not limited by this section.</p>
+
+<h2>11. Termination</h2>
+<p>This licence lasts until terminated. It ends automatically if you breach it, and you may end it at any time by deleting the app. On termination you must stop using the app and delete all copies. Sections 4, 6 and 8 to 13 survive termination. Termination does not by itself refund a subscription; see section 5.3.</p>
+
+<h2>12. Apple</h2>
+<p>This agreement is between you and us, not with Apple, and Apple is not responsible for the app or its content. Apple has no obligation to provide maintenance or support for the app. If the app fails to conform to any applicable warranty, you may notify Apple, and Apple may refund the purchase price; to the maximum extent permitted by law, Apple has no other warranty obligation with respect to the app. We — not Apple — are responsible for addressing any claim by you or a third party relating to the app, including product-liability, legal-compliance and intellectual-property claims. Apple and its subsidiaries are third-party beneficiaries of this agreement and may enforce it against you.</p>
+<p>You confirm that you are not located in a country subject to a U.S. Government embargo or designated as a “terrorist supporting” country, and are not on any U.S. Government list of prohibited or restricted parties.</p>
+
+<h2>13. Governing law</h2>
+<p>This agreement is governed by the substantive law of Switzerland, excluding its conflict-of-law rules and the UN Convention on Contracts for the International Sale of Goods. The courts at the developer’s domicile in Switzerland have jurisdiction. If you are a consumer resident in the EU, the EEA, the UK or elsewhere, this does not deprive you of the protection of mandatory consumer-law provisions of your country of residence, and you may also bring proceedings there.</p>
+
+<h2>14. Changes to these terms</h2>
+<p>We may revise this agreement; the current version always lives at this address and the “Last updated” date is revised with it. Material changes to paid features will be signalled in the app or in the App Store release notes. Continuing to use the app after a change means you accept it; if you do not, stop using the app and cancel any subscription.</p>
+
+<h2>15. Contact</h2>
+<a class="contact" href="mailto:alice.turcanu91@gmail.com">
+  <span class="label">Questions about these terms</span>
+  <span class="value">alice.turcanu91@gmail.com</span>
+</a>
+
+<footer>
+  <p>Swiss Hike · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms &amp; EULA</a> · <a href="support.html">Support</a></p>
+</footer>
+
+</div>
+</body>
+</html>
